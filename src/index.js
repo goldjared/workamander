@@ -1,10 +1,13 @@
 import './style.css';
-
+// also i was thinking, could my timer just do the min, and sec? and every interval it will also call the display
+// func, which will output HOUR:MINUTE:SEC? just some ideas
 function timer() {
+  const starter = () => {
   let start = Date.now();
   let minutes = 0;
   let hours = 0;
-  setInterval(function() {
+
+  setInterval(() => {
   const elapsedTime = Date.now() - start;
   let currentTime = (elapsedTime / 1000).toFixed(1);
   console.log(currentTime);
@@ -19,9 +22,31 @@ function timer() {
     console.log('this is min after reset', minutes);
     console.log('this is hour after +', hours);
   }
-
 }, 100);
+  }
 
 
+  
+function stop() {
+  clearInterval(2)
+  console.log('fuck!');
 }
-  console.log(timer());
+
+
+return { stop, starter }
+}
+/* lets say interval is 1, and alarm is cl ("fucl!")
+ there is the main timer running. every 5 min
+it should fire something. with the minutes and hours.
+this something will then work. 
+*/
+
+// function eventFactory(interval, alarm) {
+
+
+
+// }
+
+timer().starter();
+setTimeout(() => { timer().stop() }, 5000);
+// timer().stop();
