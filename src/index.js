@@ -1,39 +1,36 @@
-import './style.css';
+import "./style.css";
 // also i was thinking, could my timer just do the min, and sec? and every interval it will also call the display
 // func, which will output HOUR:MINUTE:SEC? just some ideas
 function timer() {
   const starter = () => {
-  let start = Date.now();
-  let minutes = 0;
-  let hours = 0;
+    let start = Date.now();
+    let minutes = 0;
+    let hours = 0;
 
-  setInterval(() => {
-  const elapsedTime = Date.now() - start;
-  let currentTime = (elapsedTime / 1000).toFixed(1);
-  console.log(currentTime);
-  if(currentTime >= 60) {
-    minutes++;
-    start = Date.now()
-    console.log('this is min', minutes)
+    setInterval(() => {
+      const elapsedTime = Date.now() - start;
+      let currentTime = (elapsedTime / 1000).toFixed(1);
+      console.log(currentTime);
+      if (currentTime >= 60) {
+        minutes++;
+        start = Date.now();
+        console.log("this is min", minutes);
+      }
+      if (minutes === 60) {
+        minutes = 0;
+        hours++;
+        console.log("this is min after reset", minutes);
+        console.log("this is hour after +", hours);
+      }
+    }, 100);
+  };
+
+  function stop() {
+    clearInterval(2);
+    console.log("fuck!");
   }
-  if(minutes === 60) {
-    minutes = 0;
-    hours++;
-    console.log('this is min after reset', minutes);
-    console.log('this is hour after +', hours);
-  }
-}, 100);
-  }
 
-
-  
-function stop() {
-  clearInterval(2)
-  console.log('fuck!');
-}
-
-
-return { stop, starter }
+  return { stop, starter };
 }
 /* lets say interval is 1, and alarm is cl ("fucl!")
  there is the main timer running. every 5 min
@@ -43,10 +40,10 @@ this something will then work.
 
 // function eventFactory(interval, alarm) {
 
-
-
 // }
 
 timer().starter();
-setTimeout(() => { timer().stop() }, 5000);
+setTimeout(() => {
+  timer().stop();
+}, 5000);
 // timer().stop();
