@@ -11,7 +11,7 @@ function timer() {
   if(currentTime >= 60) {
     minutes++;
     start = Date.now()
-    console.log('this is min', minute)
+    console.log('this is min', minutes)
   }
   if(minutes === 60) {
     minutes = 0;
