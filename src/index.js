@@ -6,13 +6,14 @@ function timer() {
   setInterval(function() {
   const elapsedTime = Date.now() - start;
   let currentTime = (elapsedTime / 1000).toFixed(1);
-  if(currentTime === 60) {
+  console.log(currentTime);
+  if(currentTime >= 60) {
     minute++;
     start = Date.now()
     console.log(minute)
 
   }
-  console.log(currentTime);
+
 }, 100);
 
 
