@@ -2,3 +2,12 @@
   background-color: black;
   color: rgb(47, 255, 127);
 }
+
+.clock {
+  display: flex;
+  background-color: aliceblue;
+  font-size: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  justify-content: center;
+}
