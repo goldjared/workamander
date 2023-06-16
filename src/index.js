@@ -4,11 +4,13 @@ class Clock {
     this.second = 0;
     this.min = 0;
     this.hour = 0;
+    this.pauseTime = 0;
   }
   tester() {
     console.log('********************',this.second, this.min, this.hour, 'this is tester, min/hour')
   }
   start() {
+
     let start = Date.now();
 
     setInterval(() => {
@@ -31,6 +33,7 @@ class Clock {
   }
   stop() {
         clearInterval(2);
+        this.pauseTime = Date.now();
     console.log("fuck!");
   }
 }
