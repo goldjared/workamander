@@ -13,6 +13,12 @@ function clockUpdate(hour, min, sec) {
   const hourDisplay = document.querySelector(".hour");
   const minDisplay = document.querySelector(".min");
   const secDisplay = document.querySelector(".sec");
+  if(hour === undefined) {
+
+    hourDisplay.textContent = `00:`;
+    minDisplay.textContent = `00:`;
+    secDisplay.textContent = `00`;
+  } else {
   if (hour < 10) {
     hourDisplay.textContent = `0${hour}:`;
   } else {
@@ -28,6 +34,8 @@ function clockUpdate(hour, min, sec) {
   } else {
     secDisplay.textContent = `${sec}`;
   }
+  }
+
 }
 
 function pausePlayBtn() {
