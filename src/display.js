@@ -30,4 +30,12 @@ function clockUpdate(hour, min, sec) {
   }
 }
 
-export { clockDisplay, clockUpdate };
+function pausePlayBtn() {
+  const container = document.querySelector('.container')
+  const pPBtn = document.createElement('button')
+  pPBtn.classList.add('pause-play');
+  pPBtn.textContent = '⏯';
+  container.append(pPBtn)
+}
+
+export { clockDisplay, clockUpdate, pausePlayBtn };
