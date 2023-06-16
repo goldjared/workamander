@@ -13,9 +13,9 @@ function clockUpdate(hour, min, sec) {
   const hourDisplay = document.querySelector('.hour')
   const minDisplay = document.querySelector('.min')
   const secDisplay = document.querySelector('.sec')
-  hourDisplay.textContent = hour;
-  minDisplay.textContent = min;
-  secDisplay.textContent = sec;
+  hourDisplay.textContent = `${hour}:`;
+  minDisplay.textContent = `${min}:`;
+  secDisplay.textContent = `${sec}`;
 }
 
 export { clockDisplay, clockUpdate }
