@@ -10,19 +10,23 @@ class Clock {
     this.pauseTime = 0;
   }
   tester() {
-    console.log('********************',this.second, this.min, this.hour, 'this is tester, min/hour')
+    console.log(
+      "********************",
+      this.second,
+      this.min,
+      this.hour,
+      "this is tester, min/hour"
+    );
   }
   start() {
-    if(this.pauseTime != 0) {
+    if (this.pauseTime != 0) {
       // console.log(((Date.now() - this.pauseTime) / 1000).toFixed(1), 'here ptime');
       // change the startdate to be updated with the amount of time we paused for.
       // in other words, date.now - pausetime. add this value to this.startdate?
-      this.startDate += (Date.now() - this.pauseTime);
+      this.startDate += Date.now() - this.pauseTime;
       this.pauseTime = 0;
-
     } else {
-
-    this.startDate = Date.now();
+      this.startDate = Date.now();
     }
 
     setInterval(() => {
@@ -45,8 +49,8 @@ class Clock {
     }, 100);
   }
   stop() {
-        clearInterval(2);
-        this.pauseTime = Date.now();
+    clearInterval(2);
+    this.pauseTime = Date.now();
     console.log("fuck!");
   }
 }
@@ -65,11 +69,9 @@ setTimeout(() => {
   clockX.tester();
 }, 8000);
 
-
-
 // setTimeout(() => {
 //   clockX.start();
 // }, 7000);
 // setTimeout(() => {
-//  clockX.tester(); 
+//  clockX.tester();
 // }, 4000);
