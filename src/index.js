@@ -1,6 +1,7 @@
 import "./style.css";
 import { clockDisplay, clockUpdate, pausePlayBtn } from "./display";
 clockDisplay();
+clockUpdate();
 pausePlayBtn();
 class Clock {
   constructor() {
