@@ -13,9 +13,27 @@ function clockUpdate(hour, min, sec) {
   const hourDisplay = document.querySelector('.hour')
   const minDisplay = document.querySelector('.min')
   const secDisplay = document.querySelector('.sec')
+  if(hour < 10) {
+
+  hourDisplay.textContent = `0${hour}:`;
+  } else {
+
   hourDisplay.textContent = `${hour}:`;
+  }
+  if(min < 10) {
+
+  minDisplay.textContent = `0${min}:`;
+  } else {
+
   minDisplay.textContent = `${min}:`;
+  }
+  if(sec < 10) {
+    
+  secDisplay.textContent = `0${sec}`;
+  } else {
+
   secDisplay.textContent = `${sec}`;
+  }
 }
 
 export { clockDisplay, clockUpdate }
