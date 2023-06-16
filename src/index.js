@@ -4,23 +4,28 @@ class Clock {
     this.second = 0;
     this.min = 0;
     this.hour = 0;
+    this.startDate = 0;
     this.pauseTime = 0;
   }
   tester() {
     console.log('********************',this.second, this.min, this.hour, 'this is tester, min/hour')
   }
   start() {
+    if(this.startDate != 0) {
 
-    let start = Date.now();
+    } else {
+
+    this.startDate = Date.now();
+    }
 
     setInterval(() => {
-      const elapsedTime = Date.now() - start;
+      const elapsedTime = Date.now() - this.startDate;
       this.second = (elapsedTime / 1000).toFixed(1);
       console.log(this.second);
       if (this.second >= 60) {
         this.min++;
         this.second = 0;
-        start = Date.now();
+        this.startDate = Date.now();
         console.log("this is min", this.min);
       }
       if (this.min === 60) {
