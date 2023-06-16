@@ -11,7 +11,12 @@ class Clock {
     console.log('********************',this.second, this.min, this.hour, 'this is tester, min/hour')
   }
   start() {
-    if(this.startDate != 0) {
+    if(this.pauseTime != 0) {
+      // console.log(((Date.now() - this.pauseTime) / 1000).toFixed(1), 'here ptime');
+      // change the startdate to be updated with the amount of time we paused for.
+      // in other words, date.now - pausetime. add this value to this.startdate?
+      this.startDate += (Date.now() - this.pauseTime);
+      this.pauseTime = 0;
 
     } else {
 
