@@ -1,4 +1,6 @@
 import "./style.css";
+import { clockDisplay, clockUpdate } from "./display";
+clockDisplay();
 class Clock {
   constructor() {
     this.second = 0;
@@ -39,6 +41,7 @@ class Clock {
         console.log("this is min after reset", this.min);
         console.log("this is hour after +", this.hour);
       }
+      clockUpdate(this.hour, this.min, this.second);
     }, 100);
   }
   stop() {
