@@ -3,9 +3,9 @@ import { clockDisplay, clockUpdate, pausePlayBtn } from "./display";
 clockDisplay();
 clockUpdate();
 pausePlayBtn();
-let timer;
 class Clock {
   constructor() {
+    this.timer;
     this.second = 0;
     this.min = 0;
     this.hour = 0;
@@ -30,7 +30,7 @@ class Clock {
       this.startDate = Date.now();
     }
 
-    timer = setInterval(() => {
+    this.timer = setInterval(() => {
       const elapsedTime = Date.now() - this.startDate;
       this.second = (elapsedTime / 1000).toFixed(1);
       console.log(this.second);
@@ -50,7 +50,7 @@ class Clock {
     }, 100);
   }
   stop() {
-    clearInterval(timer);
+    clearInterval(this.timer);
     this.pauseTime = Date.now();
     console.log("Stop function fired!");
   }
