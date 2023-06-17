@@ -3,6 +3,7 @@ import { clockDisplay, clockUpdate, pausePlayBtn } from "./display";
 clockDisplay();
 clockUpdate();
 pausePlayBtn();
+let timer;
 class Clock {
   constructor() {
     this.second = 0;
@@ -31,7 +32,7 @@ class Clock {
       this.startDate = Date.now();
     }
 
-    setInterval(() => {
+    timer = setInterval(() => {
       const elapsedTime = Date.now() - this.startDate;
       this.second = (elapsedTime / 1000).toFixed(1);
       console.log(this.second);
@@ -51,7 +52,7 @@ class Clock {
     }, 100);
   }
   stop() {
-    clearInterval(2);
+    clearInterval(timer);
     this.pauseTime = Date.now();
     console.log("fuck!");
   }
