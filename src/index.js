@@ -47,8 +47,7 @@ class Clock {
   }
 }
 let clockX = new Clock();
-pausePlay();
-function pausePlay() {
+(function pausePlay() {
   const pPBtn = document.querySelector(".pause-play");
   pPBtn.addEventListener("click", () => {
     if (clockX.isPaused === false) {
@@ -65,4 +64,4 @@ function pausePlay() {
       );
     }
   });
-}
+}())
