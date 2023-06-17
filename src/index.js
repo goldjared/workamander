@@ -57,19 +57,24 @@ class Clock {
   }
 }
 let clockX = new Clock();
-clockX.start();
-setTimeout(() => {
-  clockX.stop();
-}, 5000);
-setTimeout(() => {
-  clockX.tester();
-}, 6000);
-setTimeout(() => {
-  clockX.start();
-}, 7000);
-setTimeout(() => {
-  clockX.tester();
-}, 8000);
+pausePlay();
+function pausePlay() {
+  const pPBtn = document.querySelector('.pause-play');
+  pPBtn.addEventListener('click', () => {
+    console.log('fuck!')
+    console.log(clockX.isPaused);
+    if(clockX.isPaused === false) {
+      clockX.isPaused = true;
+      clockX.stop();
+      console.log('STOPPER');
+    } else {
+      clockX.isPaused = false;
+      clockX.start();
+      console.log('STARTER, clockispaused:', clockX.isPaused, 'should be false');
+    }
+  })
+}
+console.log(clockX.isPaused);
 
 // setTimeout(() => {
 //   clockX.start();
