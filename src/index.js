@@ -29,13 +29,10 @@ class Clock {
         this.min++;
         this.second = 0;
         this.startDate = Date.now();
-        console.log("this is min", this.min);
       }
       if (this.min === 60) {
         this.min = 0;
         this.hour++;
-        console.log("this is min after reset", this.min);
-        console.log("this is hour after +", this.hour);
       }
       clockUpdate(this.hour, this.min, this.second);
     }, 100);
@@ -49,7 +46,6 @@ class Clock {
 let clockX = new Clock();
 (function pausePlay() {
   function pausePlayOps(e) {
-
     if (clockX.isPaused === false) {
       clockX.isPaused = true;
       clockX.stop();
@@ -65,13 +61,11 @@ let clockX = new Clock();
     }
   }
   const pPBtn = document.querySelector(".pause-play");
-  pPBtn.addEventListener("click", pausePlayOps)
+  pPBtn.addEventListener("click", pausePlayOps);
   document.addEventListener("keydown", (e) => {
-    if(e.code === 'Space') {
-    console.log(e, 'fired, pausePops called')
-    pausePlayOps();
+    if (e.code === "Space") {
+      console.log(e, "fired, pausePops called");
+      pausePlayOps();
     }
-  })
-
-
-}())
+  });
+})();
