@@ -13,15 +13,6 @@ class Clock {
     this.pauseTime = 0;
     this.isPaused = true;
   }
-  tester() {
-    console.log(
-      "********************",
-      this.second,
-      this.min,
-      this.hour,
-      "this is tester, min/hour"
-    );
-  }
   start() {
     if (this.pauseTime != 0) {
       this.startDate += Date.now() - this.pauseTime;
