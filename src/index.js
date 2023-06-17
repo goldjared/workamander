@@ -48,8 +48,8 @@ class Clock {
 }
 let clockX = new Clock();
 (function pausePlay() {
-  const pPBtn = document.querySelector(".pause-play");
-  pPBtn.addEventListener("click", () => {
+  function pausePlayOps(e) {
+
     if (clockX.isPaused === false) {
       clockX.isPaused = true;
       clockX.stop();
@@ -63,5 +63,15 @@ let clockX = new Clock();
         "should be false"
       );
     }
-  });
+  }
+  const pPBtn = document.querySelector(".pause-play");
+  pPBtn.addEventListener("click", pausePlayOps)
+  document.addEventListener("keydown", (e) => {
+    if(e.code === 'Space') {
+    console.log(e, 'fired, pausePops called')
+    pausePlayOps();
+    }
+  })
+
+
 }())
