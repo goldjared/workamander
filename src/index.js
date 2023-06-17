@@ -11,6 +11,7 @@ class Clock {
     this.hour = 0;
     this.startDate = 0;
     this.pauseTime = 0;
+    this.isPaused = true;
   }
   tester() {
     console.log(
