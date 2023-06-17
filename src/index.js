@@ -1,5 +1,6 @@
 import "./style.css";
 import { clockDisplay, clockUpdate, pausePlayBtn } from "./display";
+import { pausePlay } from "./operations";
 clockDisplay();
 clockUpdate();
 pausePlayBtn();
@@ -44,40 +45,4 @@ class Clock {
   }
 }
 let clockX = new Clock();
-(function pausePlay() {
-  let cooldown = false;
-
-  function pausePlayOps(e) {
-    if(cooldown === true) {
-      console.log('cooldown, 2 seconds');
-      return;
-    }
-
-    cooldown = true;
-    setTimeout(() => {
-      cooldown = false;
-    }, 200)
-    
-    if (clockX.isPaused === false) {
-      clockX.isPaused = true;
-      clockX.stop();
-      console.log("STOPPER");
-    } else {
-      clockX.isPaused = false;
-      clockX.start();
-      console.log(
-        "STARTER, clockispaused:",
-        clockX.isPaused,
-        "should be false"
-      );
-    }
-  }
-  const pPBtn = document.querySelector(".pause-play");
-  pPBtn.addEventListener("click", pausePlayOps);
-  document.addEventListener("keydown", (e) => {
-    if (e.code === "Space") {
-      console.log(e, "fired, pausePops called");
-      pausePlayOps();
-    }
-  });
-})();
+pausePlay(clockX)
