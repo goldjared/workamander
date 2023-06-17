@@ -24,9 +24,6 @@ class Clock {
   }
   start() {
     if (this.pauseTime != 0) {
-      // console.log(((Date.now() - this.pauseTime) / 1000).toFixed(1), 'here ptime');
-      // change the startdate to be updated with the amount of time we paused for.
-      // in other words, date.now - pausetime. add this value to this.startdate?
       this.startDate += Date.now() - this.pauseTime;
       this.pauseTime = 0;
     } else {
@@ -55,32 +52,26 @@ class Clock {
   stop() {
     clearInterval(timer);
     this.pauseTime = Date.now();
-    console.log("fuck!");
+    console.log("Stop function fired!");
   }
 }
 let clockX = new Clock();
 pausePlay();
 function pausePlay() {
-  const pPBtn = document.querySelector('.pause-play');
-  pPBtn.addEventListener('click', () => {
-    console.log('fuck!')
-    console.log(clockX.isPaused);
-    if(clockX.isPaused === false) {
+  const pPBtn = document.querySelector(".pause-play");
+  pPBtn.addEventListener("click", () => {
+    if (clockX.isPaused === false) {
       clockX.isPaused = true;
       clockX.stop();
-      console.log('STOPPER');
+      console.log("STOPPER");
     } else {
       clockX.isPaused = false;
       clockX.start();
-      console.log('STARTER, clockispaused:', clockX.isPaused, 'should be false');
+      console.log(
+        "STARTER, clockispaused:",
+        clockX.isPaused,
+        "should be false"
+      );
     }
-  })
+  });
 }
-console.log(clockX.isPaused);
-
-// setTimeout(() => {
-//   clockX.start();
-// }, 7000);
-// setTimeout(() => {
-//  clockX.tester();
-// }, 4000);
