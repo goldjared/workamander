@@ -45,7 +45,19 @@ class Clock {
 }
 let clockX = new Clock();
 (function pausePlay() {
+  let cooldown = false;
+
   function pausePlayOps(e) {
+    if(cooldown === true) {
+      console.log('cooldown, 2 seconds');
+      return;
+    }
+
+    cooldown = true;
+    setTimeout(() => {
+      cooldown = false;
+    }, 200)
+    
     if (clockX.isPaused === false) {
       clockX.isPaused = true;
       clockX.stop();
