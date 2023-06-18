@@ -41,8 +41,19 @@ breaks
 
 call pausePlay to stop timer
 */
-function timeEvent(name, breakTime, sound, timeStoppage) {
-  
+function timeEvent(intervalTimeMinutes) {
+  let intervalTime = intervalTimeMinutes;
+
+  function engageEvent(timeMinutes) {
+    if(timeMinutes === intervalTime) {
+      alert('fuck!')
+    }
+
+  }
+}
+
+function soundEvent(sound) {
+
   return { name, breakTime, sound, timeStoppage}
 }
 // function pausePlay(clockName) {
