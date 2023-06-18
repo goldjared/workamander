@@ -41,6 +41,8 @@ class Clock {
   stop() {
     clearInterval(this.timer);
     this.pauseTime = Date.now();
+    clearInterval(this.timer);
+
     console.log("Stop function fired!");
   }
 }
